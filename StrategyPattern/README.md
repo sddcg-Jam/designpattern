@@ -1,4 +1,4 @@
-# 一个真实需求
+﻿# 一个真实需求
 程序员小林
 某电商网站
 显示商品价格 iphone 价格7100元
@@ -88,7 +88,7 @@ RejectedExecutionHandler 是一个策略接口，用在当线程池中没有多�
 
 - JAVA AWT 中的 LayoutManager
 
-![类图](http://wiki.jikexueyuan.com/project/design-pattern-behavior/images/1343812299_2772.jpg)
+![类图](./layoutmanager.png)
 
 - Collections排序中的应用 Comparator 
 我们如果需要控制某个类的次序，而该类本身不支持排序（即没有实现Comparable接口）；那么可以建立一个该类的比较器来排序，这个比较器只需要实现Comparator接口即可。,通过实现Comparator类来新建一个比较器，然后通过该比较器来对类进行排序。Comparator 接口其实就是一种策略模式的实践
