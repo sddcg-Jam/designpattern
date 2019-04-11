@@ -3,7 +3,7 @@
  *
  */
 
-package com.boxuegu.javaee.designpattern.day2001904017.jdksample;
+package com.boxuegu.javaee.designpattern.day20190417.jdksample;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

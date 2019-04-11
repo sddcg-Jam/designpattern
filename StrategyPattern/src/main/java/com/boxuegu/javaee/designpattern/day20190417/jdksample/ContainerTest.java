@@ -3,14 +3,13 @@
  *
  */
 
-package com.boxuegu.javaee.designpattern.day2001904017.jdksample;
+package com.boxuegu.javaee.designpattern.day20190417.jdksample;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 /**
