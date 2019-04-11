@@ -3,7 +3,7 @@
  *
  */
 
-package com.boxuegu.javaee.designpattern.day2001904017.service;
+package com.boxuegu.javaee.designpattern.day20190417.service;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
@@ -12,19 +12,19 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Jam Fang  https://www.jianshu.com/u/0977ede560d4
- * @version 创建时间：2019/4/10 19:22
+ * @version 创建时间：2019/4/11 16:10
  */
 public interface ICustomerQuotation {
     public static Map<String, ICustomerQuotation> map = new ConcurrentHashMap();
 
-    public BigDecimal quotation(BigDecimal originalPrice);
+    public BigDecimal getQuotation(BigDecimal originalPrice);
+
+    public BigDecimal getShippingFee();
 
     public String getCustomerType();
 
     @PostConstruct
     default public void init() {
-        map.put(this.getCustomerType(), this);
-
+        map.put(getCustomerType(), this);
     }
-
 }

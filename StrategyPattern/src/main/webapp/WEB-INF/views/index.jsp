@@ -107,7 +107,18 @@
         </div>
         <div id="do-not-say-5" class="am-panel-collapse am-collapse">
             <div class="am-panel-bd">
-                V3：增加MVP用户，vip用户7折
+                V4：增加MVP用户，vip用户7折
+            </div>
+        </div>
+    </div>
+    <div class="am-panel  am-panel-primary">
+        <div class="am-panel-hd">
+            <h3 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-7'}">
+                第五版需求</h3>
+        </div>
+        <div id="do-not-say-7" class="am-panel-collapse am-collapse">
+            <div class="am-panel-bd">
+                V5：增加邮费，新客户、老客户邮费10.11元，VIP客户9.11元，MVP客户0.11元。
             </div>
         </div>
     </div>
@@ -123,11 +134,11 @@
             <div style="text-align: center;">
                 Apple iPhone XR (A2108) 256GB ，售价<b>7100.00</b>元<br/>
                 您的身份对应的价格为：<b><label id="price">--</label></b></br>
-             选择身份：
-                <input type="radio" name="customerType" value="新客户" checked/>新客户
-                <input type="radio" name="customerType" value="老客户"/>老客户
-                <input type="radio" name="customerType" value="VIP客户"/>VIP客户
-                <%--  <input type="radio" name="customerType" value="MVP客户"/>MVP客户--%>
+                <%--  选择身份：
+                    <input type="radio" name="customerType" value="新客户" checked/>新客户
+                    <input type="radio" name="customerType" value="老客户"/>老客户
+                 <input type="radio" name="customerType" value="VIP客户"/>VIP客户
+                 <input type="radio" name="customerType" value="MVP客户"/>MVP客户--%>
                 <br/>
                 <button type="button" class="am-btn am-btn-primary btn-loading-quote"
                         data-am-loading="{spinner: 'circle-o-notch', loadingText: '计算中...', resetText: '计算折扣'}">
@@ -140,7 +151,7 @@
 </div>
 <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
 <script>
-    //提交服务器识别
+    //提交服务器
     $('.btn-loading-quote').click(function () {
         var $btn = $(this)
         $btn.button('loading');
