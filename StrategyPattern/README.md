@@ -273,13 +273,13 @@ public class QuotationController {
 2. 旅行的出游方式，选择骑自行车、坐汽车，每一种旅行方式都是一个策略。 
 
 # 策略模式在JDK中的应用
-- ThreadPoolExecutor
+## ThreadPoolExecutor
 RejectedExecutionHandler 是一个策略接口，用在当线程池中没有多余的线程来执行任务，并且保存任务的多列也满了（指的是有界队列），对仍在提交给线程池的任务的处理策略。
 ![ThreadPoolExecutor类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/threadpoolExecutor.png)
 
-- JAVA AWT 中的 LayoutManager
+## JAVA AWT 中的 LayoutManager
 ![LayoutManager类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/layoutmanager.png)
-- Collections排序中的应用 Comparator 
+## Collections排序中的应用 Comparator 
 我们如果需要控制某个类的次序，而该类本身不支持排序（即没有实现Comparable接口）；那么可以建立一个该类的比较器来排序，这个比较器只需要实现Comparator接口即可。,通过实现Comparator类来新建一个比较器，然后通过该比较器来对类进行排序。Comparator 接口其实就是一种策略模式的实践
 事例代码：
 抽象策略类 Comparator
