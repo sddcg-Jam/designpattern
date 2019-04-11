@@ -1,3 +1,4 @@
+
 # 课程目标
 1. 了解代码重构
 2. 了解策略模式的定义、应用场景
@@ -7,7 +8,7 @@
 # 从一个真实需求案例开始
 - 背景为某电商网站上线初期
 
-## v1
+## v1版本
 需求：显示商品价格  iPhone XR价格7100元
 ```
 @ResponseBody
@@ -15,7 +16,7 @@ public String getPrice() {
     return "7100.00"
 }
 ```
-## v2 
+## v2版本
 需求：需要根据客户类型，进行不同的折扣，新客户不打折扣，针对老客户打9折。
 最简单的 实现代码 版本1
 ```
@@ -29,7 +30,7 @@ if ("新客户".equals(customType)) {
 }
 ```
 
-## V3 
+## V3版本 
 现在需求变更了，增加了针对VIP客户打8折
 ```
 if ("新客户".equals(customType)) {
@@ -46,10 +47,10 @@ if ("新客户".equals(customType)) {
 }
 ```
 
-## V3.5 重构
+## V3.5版本 重构
 寻找代码问题，出现了多重条件判断语句，代码耦合严重，不便于维护
-### 第一次
-提取方法，将分支找中的语句提取成单独的方法，通过方法名简化维护难度
+### 第一次重构
+提取方法，将分支中的语句提取成单独的方法，通过方法名降低维护难度
 ```
     public BigDecimal getNewCustomerPrice(BigDecimal originalPrice) {
         return originalPrice;
@@ -65,7 +66,7 @@ if ("新客户".equals(customType)) {
 
     }
 ```
-### 第二次
+### 第二次重构
 提取接口，重构实现类。将报价策略抽象成接口，针对不同的报价策略实现不同的具体类。
 ```
 public interface ICustomerQuotation {
@@ -108,7 +109,7 @@ public class VIPCustomerQuotation implements ICustomerQuotation {
         }
         BigDecimal price = quotation.getQuotation(originalPrice);
 ```
-### 第三次
+### 第三次重构
 提取context，通过context持有具体策略，屏蔽客户端对具体策略方法的依赖，通过context进行隔离。
 ```
 public class CustomerQuotationContext {
@@ -153,7 +154,7 @@ public class CustomerQuotationContext {
 ## 定义
 定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。
 ## 类图
-![类图](./类图.png) 
+![类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/类图.png) 
 
 ## 使用场景
 1. 多个类只有在算法或行为上稍有不同的场景。
@@ -161,7 +162,7 @@ public class CustomerQuotationContext {
 3. 需要屏蔽算法规则的场景。  
 
 # 电商案例需求变更
-## V4 
+## V4版本 
 增加MVP用户，MVP用户7折。
 因为使用了策略模式，所以很容易扩展，简单的实现一个针对MVP客户的策略实现类即可。
 ```
@@ -172,7 +173,7 @@ public class MVPCustomerQuotation implements ICustomerQuotation {
     }
 }
 ```
-## V5
+## V5版本
 需求变更增加邮费，新客户、老客户邮费10.11元，VIP客户9.11元，MVP客户0.11元。
 在策略接口中增加新方法 getShippingFee(),具体策略类进行实现。
 ```
@@ -205,7 +206,7 @@ public class MVPCustomerQuotation implements ICustomerQuotation {
     }
 ```
 
-# 电商案例继续重构
+# 电商案例继续重构V6版本
 如何进一步优化代码呢，能否减少if else判断？
 
 1. 对策略接口进行改进，使用@PostConstruct对策略对象进行map管理
@@ -261,24 +262,23 @@ public class QuotationController {
 ```
 
 # 策略模式其他应用案例 
-1. 诸葛亮的锦囊妙计，每一个锦囊就是一个策略。
-三国刘备取西川时，谋士庞统给的上、中、下三个计策：
-　　上策：挑选精兵，昼夜兼行直接偷袭成都，可以一举而定，此为上计计也。
-　　中策：杨怀、高沛是蜀中名将，手下有精锐部队，而且据守关头，我们可以装作要回荆州，引他们轻骑来见，可就此将其擒杀，而后进兵成都，此为中计。
-　　下策：退还白帝，连引荆州，慢慢进图益州，此为下计。
-这三个计策都是取西川的计策，也就是攻取西川这个问题的具体的策略算法，刘备可以采用上策，可以采用中策，当然也可以采用下策，由此可见策略模式的各种具体的策略算法都是平等的，可以相互替换。
-那谁来选择具体采用哪种计策（算法）？在这个故事中当然是刘备选择了，也就是外部的客户端选择使用某个具体的算法，然后把该算法（计策）设置到上下文当中；
-还有一种情况就是客户端不选择具体的算法，把这个事交给上下文，这相当于刘备说我不管有哪些攻取西川的计策，我只要结果（成功的拿下西川），具体怎么攻占（有哪些计策，怎么选择）由参谋部来决定（上下文）。
+1. 诸葛亮的锦囊妙计，每一个锦囊就是一个策略。三国刘备取西川时，谋士庞统给的上、中、下三个计策：
+
+- 上策：挑选精兵，昼夜兼行直接偷袭成都，可以一举而定，此为上计计也。
+- 中策：杨怀、高沛是蜀中名将，手下有精锐部队，而且据守关头，我们可以装作要回荆州，引他们轻骑来见，可就此将其擒杀，而后进兵成都，此为中计。
+- 下策：退还白帝，连引荆州，慢慢进图益州，此为下计。
+
+    这三个计策都是取西川的计策，也就是攻取西川这个问题的具体的策略算法，刘备可以采用上策，可以采用中策，当然也可以采用下策，由此可见策略模式的各种具体的策略算法都是平等的，可以相互替换。那谁来选择具体采用哪种计策（算法）？在这个故事中当然是刘备选择了，也就是外部的客户端选择使用某个具体的算法，然后把该算法（计策）设置到上下文当中。还有一种情况就是客户端不选择具体的算法，把这个事交给上下文，这相当于刘备说我不管有哪些攻取西川的计策，我只要结果（成功的拿下西川），具体怎么攻占（有哪些计策，怎么选择）由参谋部来决定（上下文）。
 
 2. 旅行的出游方式，选择骑自行车、坐汽车，每一种旅行方式都是一个策略。 
 
 # 策略模式在JDK中的应用
 - ThreadPoolExecutor
 RejectedExecutionHandler 是一个策略接口，用在当线程池中没有多余的线程来执行任务，并且保存任务的多列也满了（指的是有界队列），对仍在提交给线程池的任务的处理策略。
-![ThreadPoolExecutor类图](./threadpoolExecutor.png)
+![ThreadPoolExecutor类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/threadpoolExecutor.png)
 
 - JAVA AWT 中的 LayoutManager
-![LayoutManager类图](./layoutmanager.png)
+![LayoutManager类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/layoutmanager.png)
 - Collections排序中的应用 Comparator 
 我们如果需要控制某个类的次序，而该类本身不支持排序（即没有实现Comparable接口）；那么可以建立一个该类的比较器来排序，这个比较器只需要实现Comparator接口即可。,通过实现Comparator类来新建一个比较器，然后通过该比较器来对类进行排序。Comparator 接口其实就是一种策略模式的实践
 事例代码：
