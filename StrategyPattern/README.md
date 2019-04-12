@@ -1,4 +1,3 @@
-
 # 课程目标
 1. 了解代码重构
 2. 了解策略模式的定义、应用场景
@@ -154,8 +153,8 @@ public class CustomerQuotationContext {
 ## 定义
 定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。
 ## 类图
-![类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/类图.png) 
 
+![类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/类图.png)
 ## 使用场景
 1. 多个类只有在算法或行为上稍有不同的场景。
 2. 算法需要自由切换的场景。
@@ -262,7 +261,7 @@ public class QuotationController {
 ```
 
 # 策略模式其他应用案例 
-1. 诸葛亮的锦囊妙计，每一个锦囊就是一个策略。三国刘备取西川时，谋士庞统给的上、中、下三个计策：
+1. 三国刘备取西川时，谋士庞统给的上、中、下三个计策：
 
 - 上策：挑选精兵，昼夜兼行直接偷袭成都，可以一举而定，此为上计计也。
 - 中策：杨怀、高沛是蜀中名将，手下有精锐部队，而且据守关头，我们可以装作要回荆州，引他们轻骑来见，可就此将其擒杀，而后进兵成都，此为中计。
@@ -275,9 +274,11 @@ public class QuotationController {
 # 策略模式在JDK中的应用
 ## ThreadPoolExecutor
 RejectedExecutionHandler 是一个策略接口，用在当线程池中没有多余的线程来执行任务，并且保存任务的多列也满了（指的是有界队列），对仍在提交给线程池的任务的处理策略。
+
 ![ThreadPoolExecutor类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/threadpoolExecutor.png)
 
-## JAVA AWT 中的 LayoutManager
+## Swing中的LayoutManager
+
 ![LayoutManager类图](https://raw.githubusercontent.com/fangjianmin/designpattern/master/StrategyPattern/layoutmanager.png)
 ## Collections排序中的应用 Comparator 
 我们如果需要控制某个类的次序，而该类本身不支持排序（即没有实现Comparable接口）；那么可以建立一个该类的比较器来排序，这个比较器只需要实现Comparator接口即可。,通过实现Comparator类来新建一个比较器，然后通过该比较器来对类进行排序。Comparator 接口其实就是一种策略模式的实践
