@@ -1,5 +1,6 @@
 {
 "versionCode":2,
-"downloadURL":"http://raw.githack.com/fangjianmin/designpattern/master/jianshuAssistant_v1.2.apk",
+"downloadURL":"http://raw.githubusercontent.com/fangjianmin/designpattern/master/jianshuAssistant_v1.2.apk",
+"bakdownloadURL":"http://raw.githack.com/fangjianmin/designpattern/master/jianshuAssistant_v1.2.apk",
 "releaseNote":"新版本发布了，增加了功能！"
 }
