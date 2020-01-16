@@ -1,6 +1,6 @@
 {
 	"versionCode":4,
 	"bakdownloadURL":"http://raw.githubusercontent.com/fangjianmin/designpattern/master/jianshuAssistant_v1.3.apk",
-	"downloadURL":"http://raw.githack.com/fangjianmin/designpattern/master/jianshuAssistant_v1.4.apk",
-	"releaseNote":"大虾专题暂时取消前五篇公益文;新增 一片天推优互动社群 专题"
+	"downloadURL":"http://raw.githack.com/fangjianmin/designpattern/master/jianshuAssistant_v1.5.apk",
+	"releaseNote":"去掉评论的尾号尾巴;增加略过文章功能;"
 }
